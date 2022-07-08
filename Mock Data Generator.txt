@@ -1,0 +1,387 @@
+from random import uniform
+from random import randrange
+
+accountNum = 100
+maxAmount = [40000, 80000, 160000, 500000, 1000000, 10000000, 100000000, 999999999]
+weights = [55,75,85,90,95,97,99]
+
+fnames = [
+"James", 
+"Mary", 
+"Robert", 
+"Patricia", 
+"John", 
+"Jennifer", 
+"Michael", 
+"Linda", 
+"David", 
+"Elizabeth", 
+"William", 
+"Barbara", 
+"Richard", 
+"Susan", 
+"Joseph", 
+"Jessica", 
+"Thomas", 
+"Sarah", 
+"Charles", 
+"Karen", 
+"Christopher", 
+"Lisa", 
+"Daniel", 
+"Nancy", 
+"Matthew", 
+"Betty", 
+"Anthony", 
+"Margaret", 
+"Mark", 
+"Sandra", 
+"Donald", 
+"Ashley", 
+"Steven", 
+"Kimberly", 
+"Paul", 
+"Emily", 
+"Andrew", 
+"Donna", 
+"Joshua", 
+"Michelle", 
+"Kenneth", 
+"Carol", 
+"Kevin", 
+"Amanda", 
+"Brian", 
+"Dorothy", 
+"George", 
+"Melissa", 
+"Timothy", 
+"Deborah", 
+"Ronald", 
+"Stephanie", 
+"Edward", 
+"Rebecca", 
+"Jason", 
+"Sharon", 
+"Jeffrey", 
+"Laura", 
+"Ryan", 
+"Cynthia", 
+"Jacob", 
+"Kathleen", 
+"Gary", 
+"Amy", 
+"Nicholas", 
+"Angela", 
+"Eric", 
+"Shirley", 
+"Jonathan", 
+"Anna", 
+"Stephen", 
+"Brenda", 
+"Larry", 
+"Pamela", 
+"Justin", 
+"Emma", 
+"Scott", 
+"Nicole", 
+"Brandon", 
+"Helen", 
+"Benjamin", 
+"Samantha", 
+"Samuel", 
+"Katherine", 
+"Gregory", 
+"Christine", 
+"Alexander", 
+"Debra", 
+"Frank", 
+"Rachel", 
+"Patrick", 
+"Carolyn", 
+"Raymond", 
+"Janet", 
+"Jack", 
+"Catherine", 
+"Dennis", 
+"Maria", 
+"Jerry", 
+"Heather", 
+"Tyler", 
+"Diane", 
+"Aaron", 
+"Ruth", 
+"Jose", 
+"Julie", 
+"Adam", 
+"Olivia", 
+"Nathan", 
+"Joyce", 
+"Henry", 
+"Virginia", 
+"Douglas", 
+"Victoria", 
+"Zachary", 
+"Kelly", 
+"Peter", 
+"Lauren", 
+"Kyle", 
+"Christina", 
+"Ethan", 
+"Joan", 
+"Walter", 
+"Evelyn", 
+"Noah", 
+"Judith", 
+"Jeremy", 
+"Megan", 
+"Christian", 
+"Andrea", 
+"Keith", 
+"Cheryl", 
+"Roger", 
+"Hannah", 
+"Terry", 
+"Jacqueline", 
+"Gerald", 
+"Martha", 
+"Harold", 
+"Gloria", 
+"Sean", 
+"Teresa", 
+"Austin", 
+"Ann", 
+"Carl", 
+"Sara", 
+"Arthur", 
+"Madison", 
+"Lawrence", 
+"Frances", 
+"Dylan", 
+"Kathryn", 
+"Jesse", 
+"Janice", 
+"Jordan", 
+"Jean", 
+"Bryan", 
+"Abigail", 
+"Billy", 
+"Alice", 
+"Joe", 
+"Julia", 
+"Bruce", 
+"Judy", 
+"Gabriel", 
+"Sophia", 
+"Logan", 
+"Grace", 
+"Albert", 
+"Denise", 
+"Willie", 
+"Amber", 
+"Alan", 
+"Doris", 
+"Juan", 
+"Marilyn", 
+"Wayne", 
+"Danielle", 
+"Elijah", 
+"Beverly", 
+"Randy", 
+"Isabella", 
+"Roy", 
+"Theresa", 
+"Vincent", 
+"Diana", 
+"Ralph", 
+"Natalie", 
+"Eugene", 
+"Brittany", 
+"Russell", 
+"Charlotte", 
+"Bobby", 
+"Marie", 
+"Mason", 
+"Kayla", 
+"Philip", 
+"Alexis", 
+"Louis", 
+"Lori", 
+]
+
+lnames = [
+"Smith", 
+"Johnson", 
+"Williams", 
+"Jones", 
+"Brown", 
+"Davis", 
+"Miller", 
+"Wilson", 
+"Moore", 
+"Taylor", 
+"Anderson", 
+"Thomas", 
+"Jackson", 
+"White", 
+"Harris", 
+"Martin", 
+"Thompson", 
+"Garcia", 
+"Martinez", 
+"Robinson", 
+"Clark", 
+"Rodriguez", 
+"Lewis", 
+"Lee", 
+"Walker", 
+"Hall", 
+"Allen", 
+"Young", 
+"Hernandez", 
+"King", 
+"Wright", 
+"Lopez", 
+"Hill", 
+"Scott", 
+"Green", 
+"Adams", 
+"Baker", 
+"Gonzalez", 
+"Nelson", 
+"Carter", 
+"Mitchell", 
+"Perez", 
+"Roberts", 
+"Turner", 
+"Phillips", 
+"Campbell", 
+"Parker", 
+"Evans", 
+"Edwards", 
+"Collins", 
+"Stewart", 
+"Sanchez", 
+"Morris", 
+"Rogers", 
+"Reed", 
+"Cook", 
+"Morgan", 
+"Bell", 
+"Murphy", 
+"Bailey", 
+"Rivera", 
+"Cooper", 
+"Richardson", 
+"Cox", 
+"Howard", 
+"Ward", 
+"Torres", 
+"Peterson", 
+"Gray", 
+"Ramirez", 
+"James", 
+"Watson", 
+"Brooks", 
+"Kelly", 
+"Sanders", 
+"Price", 
+"Bennett", 
+"Wood", 
+"Barnes", 
+"Ross", 
+"Henderson", 
+"Coleman", 
+"Jenkins", 
+"Perry", 
+"Powell", 
+"Long", 
+"Patterson", 
+"Hughes", 
+"Flores", 
+"Washington", 
+"Butler", 
+"Simmons", 
+"Foster", 
+"Gonzales", 
+"Bryant", 
+"Alexander", 
+"Russell", 
+"Griffin", 
+"Diaz", 
+"Hayes", 
+]
+
+index = 0
+idList = []
+checking = []
+savings = []
+accounts = []
+
+def weighted_random():
+    s = 0.0
+    r = randrange(100)
+    if r <= weights[0]:
+        s = uniform(0, maxAmount[0])
+    elif weights[0] < r <= weights[1]:
+        s = uniform(maxAmount[0], maxAmount[1])
+    elif weights[1] < r <= weights[2]:
+        s = uniform(maxAmount[1], maxAmount[2])
+    elif weights[2] < r <= weights[3]:
+        s = uniform(maxAmount[2], maxAmount[3])
+    elif weights[3] < r <= weights[4]:
+        s = uniform(maxAmount[3], maxAmount[4])
+    elif weights[4] < r <= weights[5]:
+        s = uniform(maxAmount[4], maxAmount[5])
+    elif weights[5] < r <= weights[6]:
+        s = uniform(maxAmount[5], maxAmount[6])
+    else:
+        s = uniform(maxAmount[6], maxAmount[7])
+    return s
+
+
+# create account IDs for accounts
+while index < accountNum*3:
+    x = 0
+    while x < 3:
+        # generate ID
+        id = ""
+        for i in range(5):
+            id += str(randrange(10))
+        
+        # check for uniqueness
+        unique = True
+        for i in range(len(idList) - 1):
+            if id == idList[i]:
+                unique = False
+                i = len(idList)
+        
+        # if unique
+        if unique:
+            # add to list
+            idList.append(id)
+            x += 1
+        
+    # create insert statements for account
+    checking.append("INSERT INTO Checking (AccountID, Amount)\nVALUES ('{0}', {1:0.2f});".
+    format(idList[index], weighted_random()))
+    savings.append("INSERT INTO Savings (AccountID, Amount)\nVALUES ('{0}', {1:0.2f});".
+    format(idList[index+1], weighted_random()))
+    accounts.append("INSERT INTO Accounts (AccountID, SavingsID, PIN, Name)\nVALUES ('{0}', '{1}', '{2}', '{3}');".
+    format(idList[index], idList[index+1], idList[index+2], fnames[randrange(len(fnames))] + " " + lnames[randrange(len(lnames))]))
+
+    index += 3
+
+print("-- Insert data into the Checking table")    
+for s in checking:
+    print(s)
+print()
+
+print("-- Insert data into the Savings table")
+for s in savings:
+    print(s)
+print()
+
+print("-- Insert data into the Accounts table")
+for s in accounts:
+    print(s)
+print()
